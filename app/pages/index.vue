@@ -20,8 +20,36 @@ const filtered = computed(() => {
     return matchesCategory && haystack.includes(term)
   })
 })
+const uniqueCategories = computed(() => new Set(systems.value.map(item => item.category)).size)
 const uniqueFonts = computed(() => new Set(systems.value.flatMap(item => [item.headingFont, item.bodyFont])).size)
 const uniqueIcons = computed(() => [...new Set(systems.value.flatMap(item => item.icons))])
+const benefits = [
+  {
+    icon: 'i-lucide-copy-check',
+    title: 'Copiado instantáneo',
+    description: 'Cada color se puede copiar desde la tarjeta para llevar la paleta al diseño o al código.',
+  },
+  {
+    icon: 'i-lucide-panels-top-left',
+    title: 'Vista de interfaz',
+    description: 'Las tarjetas muestran cómo conviven paleta, tipografía, iconos y movimiento en una UI real.',
+  },
+  {
+    icon: 'i-lucide-database-zap',
+    title: 'CMS integrado',
+    description: 'El panel permite editar, duplicar, importar y exportar contenido desde el navegador.',
+  },
+  {
+    icon: 'i-lucide-moon-star',
+    title: 'Modo claro y oscuro',
+    description: 'La identidad visual responde al tema del sistema sin perder contraste ni jerarquía.',
+  },
+  {
+    icon: 'i-lucide-github',
+    title: 'GitHub Pages ready',
+    description: 'El proyecto genera una versión estática lista para publicar como showcase público.',
+  },
+]
 </script>
 
 <template>
@@ -51,7 +79,7 @@ const uniqueIcons = computed(() => [...new Set(systems.value.flatMap(item => ite
         </div>
         <div class="hero-tags">
           <UBadge
-            v-for="tag in ['Paletas', 'Tipografías', 'Iconos', 'Animaciones']"
+            v-for="tag in ['Paletas', 'Tipografías', 'Iconos', 'Animaciones', 'Modo oscuro', 'CMS']"
             :key="tag"
             variant="soft"
           >
@@ -96,9 +124,10 @@ const uniqueIcons = computed(() => [...new Set(systems.value.flatMap(item => ite
 
     <section class="stats-row">
       <article><strong>{{ systems.length }}</strong><span>Sistemas visuales</span></article>
+      <article><strong>{{ uniqueCategories }}</strong><span>Categorías</span></article>
       <article><strong>{{ uniqueFonts }}</strong><span>Tipografías</span></article>
       <article><strong>{{ uniqueIcons.length }}</strong><span>Iconos</span></article>
-      <article><strong>60 FPS</strong><span>Animaciones fluidas</span></article>
+      <article><strong>1 clic</strong><span>Copiado rápido</span></article>
     </section>
 
     <section
@@ -142,6 +171,24 @@ const uniqueIcons = computed(() => [...new Set(systems.value.flatMap(item => ite
         title="No se encontraron sistemas"
         icon="i-lucide-search-x"
       />
+    </section>
+
+    <section class="page-section benefits-section">
+      <div class="section-heading">
+        <div><span class="eyebrow">FLUJO DE TRABAJO</span><h2>De la inspiración a producción.</h2></div>
+        <p>La biblioteca combina exploración visual, administración local y salida estática para publicar sin backend.</p>
+      </div>
+      <div class="benefit-grid">
+        <article
+          v-for="benefit in benefits"
+          :key="benefit.title"
+          class="benefit-card"
+        >
+          <span class="benefit-icon"><UIcon :name="benefit.icon" /></span>
+          <h3>{{ benefit.title }}</h3>
+          <p>{{ benefit.description }}</p>
+        </article>
+      </div>
     </section>
 
     <section
@@ -198,6 +245,21 @@ const uniqueIcons = computed(() => [...new Set(systems.value.flatMap(item => ite
           </button>
         </UTooltip>
       </div>
+    </section>
+
+    <section class="studio-cta">
+      <div>
+        <span class="eyebrow">CMS LOCAL</span>
+        <h2>Administra tu biblioteca visual y publica el resultado en GitHub Pages.</h2>
+        <p>Amplía sistemas, ajusta paletas y exporta el contenido sin cambiar la estructura del proyecto.</p>
+      </div>
+      <UButton
+        size="xl"
+        to="/admin"
+        trailing-icon="i-lucide-arrow-right"
+      >
+        Abrir CMS
+      </UButton>
     </section>
   </main>
 </template>

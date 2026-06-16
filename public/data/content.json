@@ -167,6 +167,222 @@
       "sampleTitle": "Información clara para servicios críticos.",
       "sampleText": "Azul petróleo, celeste accesible y movimiento calmado para transmitir confianza.",
       "featured": false
+    },
+    {
+      "id": "corporate-tech-blue",
+      "name": "Corporate Tech Blue",
+      "category": "Corporativa",
+      "headingFont": "Plus Jakarta Sans",
+      "bodyFont": "Noto Sans",
+      "palette": [
+        "#1E3A8A",
+        "#2563EB",
+        "#06B6D4",
+        "#DBEAFE",
+        "#F8FAFC",
+        "#1E293B"
+      ],
+      "iconStyle": "Accessible Line",
+      "animation": "reveal",
+      "icons": [
+        "i-lucide-building-2",
+        "i-lucide-shield-check",
+        "i-lucide-activity",
+        "i-lucide-server"
+      ],
+      "description": "Azul corporativo con brillo técnico para software empresarial, reportes y plataformas B2B.",
+      "sampleTitle": "Confianza digital para equipos exigentes.",
+      "sampleText": "Azules profundos, cian medido y superficies limpias para comunicar estabilidad.",
+      "featured": false
+    },
+    {
+      "id": "purple-saas",
+      "name": "Purple SaaS Velocity",
+      "category": "SaaS",
+      "headingFont": "Sora",
+      "bodyFont": "Manrope",
+      "palette": [
+        "#4C1D95",
+        "#6D28D9",
+        "#A855F7",
+        "#E9D5FF",
+        "#FAF7FF",
+        "#2E1065"
+      ],
+      "iconStyle": "Gradient Stroke",
+      "animation": "float",
+      "icons": [
+        "i-lucide-bot",
+        "i-lucide-workflow",
+        "i-lucide-cloud",
+        "i-lucide-sparkles"
+      ],
+      "description": "Violeta SaaS para automatización, IA y productos con experiencia guiada.",
+      "sampleTitle": "Automatiza flujos con presencia premium.",
+      "sampleText": "Contraste púrpura, lavanda suave y microinteracciones para elevar dashboards.",
+      "featured": true
+    },
+    {
+      "id": "midnight-cyan",
+      "name": "Midnight Cyan Terminal",
+      "category": "Ciberseguridad",
+      "headingFont": "Sora",
+      "bodyFont": "Plus Jakarta Sans",
+      "palette": [
+        "#020617",
+        "#0F172A",
+        "#1E293B",
+        "#22D3EE",
+        "#38BDF8",
+        "#F8FAFC"
+      ],
+      "iconStyle": "Terminal Line",
+      "animation": "glow",
+      "icons": [
+        "i-lucide-terminal",
+        "i-lucide-radar",
+        "i-lucide-code-2",
+        "i-lucide-gauge"
+      ],
+      "description": "Dark UI con acento cian para herramientas técnicas, DevOps y seguridad.",
+      "sampleTitle": "Control operativo en ambientes complejos.",
+      "sampleText": "Grafito nocturno, datos luminosos y jerarquía compacta para lectura intensa.",
+      "featured": false
+    },
+    {
+      "id": "sunset-energy",
+      "name": "Sunset Energy",
+      "category": "Gastronomía",
+      "headingFont": "Bricolage Grotesque",
+      "bodyFont": "DM Sans",
+      "palette": [
+        "#7C2D12",
+        "#EA580C",
+        "#F97316",
+        "#FACC15",
+        "#FFF7ED",
+        "#431407"
+      ],
+      "iconStyle": "Warm Rounded",
+      "animation": "pulse",
+      "icons": [
+        "i-lucide-flame",
+        "i-lucide-utensils",
+        "i-lucide-calendar-days",
+        "i-lucide-shopping-bag"
+      ],
+      "description": "Paleta cálida para restaurantes, eventos, delivery y marcas con energía comercial.",
+      "sampleTitle": "Activa el apetito visual de tu campaña.",
+      "sampleText": "Naranjas intensos, amarillo solar y tonos tostados para CTA con fuerza.",
+      "featured": true
+    },
+    {
+      "id": "forest-premium",
+      "name": "Forest Premium",
+      "category": "Natural",
+      "headingFont": "Bricolage Grotesque",
+      "bodyFont": "Lora",
+      "palette": [
+        "#14532D",
+        "#166534",
+        "#65A30D",
+        "#CA8A04",
+        "#F7FEE7",
+        "#1A2E1A"
+      ],
+      "iconStyle": "Organic Stroke",
+      "animation": "drift",
+      "icons": [
+        "i-lucide-trees",
+        "i-lucide-sprout",
+        "i-lucide-mountain",
+        "i-lucide-leaf"
+      ],
+      "description": "Verdes profundos y acento oliva para sostenibilidad, turismo y bienestar premium.",
+      "sampleTitle": "Naturaleza con estructura editorial.",
+      "sampleText": "Textura orgánica, lectura elegante y movimiento lento para marcas conscientes.",
+      "featured": false
+    },
+    {
+      "id": "red-tech",
+      "name": "Red Tech Signal",
+      "category": "Tecnología",
+      "headingFont": "Sora",
+      "bodyFont": "Manrope",
+      "palette": [
+        "#18181B",
+        "#27272A",
+        "#E11D48",
+        "#FB7185",
+        "#FAFAFA",
+        "#27272A"
+      ],
+      "iconStyle": "Sharp Signal",
+      "animation": "pulse",
+      "icons": [
+        "i-lucide-cpu",
+        "i-lucide-hard-drive",
+        "i-lucide-shield-alert",
+        "i-lucide-zap"
+      ],
+      "description": "Grafito y rojo técnico para ciberseguridad, hardware, alertas y performance.",
+      "sampleTitle": "Señales críticas con impacto inmediato.",
+      "sampleText": "Acentos rojos, fondos densos y tipografía geométrica para estados de alto valor.",
+      "featured": false
+    },
+    {
+      "id": "caribbean-fresh",
+      "name": "Caribbean Fresh",
+      "category": "Creativa",
+      "headingFont": "Plus Jakarta Sans",
+      "bodyFont": "DM Sans",
+      "palette": [
+        "#005F73",
+        "#0A9396",
+        "#EE9B00",
+        "#E85D04",
+        "#F6FFF8",
+        "#003049"
+      ],
+      "iconStyle": "Fresh Rounded",
+      "animation": "wave",
+      "icons": [
+        "i-lucide-plane",
+        "i-lucide-map-pin",
+        "i-lucide-waves",
+        "i-lucide-compass"
+      ],
+      "description": "Turquesa, ámbar y coral para turismo, experiencias y campañas de temporada.",
+      "sampleTitle": "Convierte destinos en sistemas memorables.",
+      "sampleText": "Color fresco, ritmo de ola y composición limpia para piezas de alto recuerdo.",
+      "featured": true
+    },
+    {
+      "id": "warm-neutral",
+      "name": "Warm Neutral Ops",
+      "category": "Minimalista",
+      "headingFont": "Manrope",
+      "bodyFont": "Work Sans",
+      "palette": [
+        "#292524",
+        "#44403C",
+        "#C2410C",
+        "#FED7AA",
+        "#FAFAF9",
+        "#1C1917"
+      ],
+      "iconStyle": "Quiet Line",
+      "animation": "reveal",
+      "icons": [
+        "i-lucide-file-text",
+        "i-lucide-receipt-text",
+        "i-lucide-layout-template",
+        "i-lucide-box"
+      ],
+      "description": "Neutros cálidos para documentación, operaciones, portales internos y procesos.",
+      "sampleTitle": "Orden visual para contenido operativo.",
+      "sampleText": "Tonos piedra, cobre sobrio y jerarquía clara para interfaces de uso diario.",
+      "featured": false
     }
   ]
 }

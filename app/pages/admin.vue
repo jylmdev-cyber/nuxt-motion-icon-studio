@@ -12,6 +12,7 @@ const toast = useToast()
 const active = ref<'dashboard' | 'settings' | 'systems'>('dashboard')
 const editorValue = ref<VisualSystem | null>(null)
 const fileInput = ref<HTMLInputElement | null>(null)
+const adminSearch = ref('')
 
 const settingsForm = reactive<StudioSettings>({
   brand: '',
@@ -29,9 +30,18 @@ watchEffect(() => {
 })
 
 const systems = computed(() => store.content?.systems ?? [])
-const uniqueIcons = computed(() => new Set(systems.value.flatMap(item => item.icons)).size)
 const uniqueCategories = computed(() => new Set(systems.value.map(item => item.category)).size)
 const featured = computed(() => systems.value.filter(item => item.featured).length)
+const totalColors = computed(() => systems.value.reduce((total, item) => total + item.palette.length, 0))
+const filteredSystems = computed(() => {
+  const term = adminSearch.value.trim().toLowerCase()
+  if (!term) return systems.value
+
+  return systems.value.filter((item) => {
+    const haystack = `${item.name} ${item.category} ${item.headingFont} ${item.bodyFont} ${item.iconStyle} ${item.animation}`.toLowerCase()
+    return haystack.includes(term)
+  })
+})
 
 const { downloadJson, readJson } = useStudioExport()
 
@@ -64,6 +74,14 @@ function saveSystem(system: VisualSystem) {
   store.upsertSystem(system)
   editorValue.value = null
   toast.add({ title: 'Sistema guardado', icon: 'i-lucide-circle-check' })
+}
+
+function toggleFeatured(system: VisualSystem) {
+  store.upsertSystem({ ...clonePlain(system), featured: !system.featured })
+  toast.add({
+    title: system.featured ? 'Sistema normal' : 'Sistema destacado',
+    icon: system.featured ? 'i-lucide-star-off' : 'i-lucide-star',
+  })
 }
 
 async function importFile(event: Event) {
@@ -160,7 +178,7 @@ async function importFile(event: Event) {
           <div class="admin-stats">
             <article><span>Sistemas</span><strong>{{ systems.length }}</strong><small>registrados</small></article>
             <article><span>Destacados</span><strong>{{ featured }}</strong><small>en portada</small></article>
-            <article><span>Iconos</span><strong>{{ uniqueIcons }}</strong><small>únicos</small></article>
+            <article><span>Colores</span><strong>{{ totalColors }}</strong><small>disponibles</small></article>
             <article><span>Categorías</span><strong>{{ uniqueCategories }}</strong><small>segmentos</small></article>
           </div>
           <UCard>
@@ -231,18 +249,25 @@ async function importFile(event: Event) {
             <template #header>
               <div class="panel-heading">
                 <div><h2>Sistemas visuales</h2><p>Crea, edita, duplica o elimina combinaciones.</p></div>
-                <UButton
-                  icon="i-lucide-plus"
-                  @click="editSystem()"
-                >
-                  Nuevo sistema
-                </UButton>
+                <div class="admin-panel-tools">
+                  <UInput
+                    v-model="adminSearch"
+                    icon="i-lucide-search"
+                    placeholder="Buscar sistema..."
+                  />
+                  <UButton
+                    icon="i-lucide-plus"
+                    @click="editSystem()"
+                  >
+                    Nuevo sistema
+                  </UButton>
+                </div>
               </div>
             </template>
 
             <div class="admin-list">
               <article
-                v-for="system in systems"
+                v-for="system in filteredSystems"
                 :key="system.id"
               >
                 <div class="list-main">
@@ -259,6 +284,15 @@ async function importFile(event: Event) {
                   </div>
                 </div>
                 <div class="list-actions">
+                  <UButton
+                    size="xs"
+                    :color="system.featured ? 'warning' : 'neutral'"
+                    :variant="system.featured ? 'soft' : 'outline'"
+                    :icon="system.featured ? 'i-lucide-star' : 'i-lucide-star-off'"
+                    @click="toggleFeatured(system)"
+                  >
+                    {{ system.featured ? 'Destacado' : 'Destacar' }}
+                  </UButton>
                   <UButton
                     size="xs"
                     color="neutral"
@@ -285,6 +319,13 @@ async function importFile(event: Event) {
                   </UButton>
                 </div>
               </article>
+              <UAlert
+                v-if="filteredSystems.length === 0"
+                class="admin-empty"
+                title="No se encontraron sistemas"
+                description="Prueba con otra categoría, fuente, estilo de iconos o nombre."
+                icon="i-lucide-search-x"
+              />
             </div>
           </UCard>
         </section>
