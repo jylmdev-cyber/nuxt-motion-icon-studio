@@ -3,7 +3,7 @@ useSeoMeta({
   title: 'Motion Icon Studio — Sistemas visuales',
   ogTitle: 'Motion Icon Studio',
   description: 'Paletas, tipografías, iconos y animaciones coordinadas.',
-  ogDescription: 'Explora sistemas visuales completos para productos digitales.'
+  ogDescription: 'Explora sistemas visuales completos para productos digitales.',
 })
 
 const store = useStudioStore()
@@ -14,7 +14,7 @@ const systems = computed(() => store.content?.systems ?? [])
 const categories = computed(() => ['Todas', ...new Set(systems.value.map(item => item.category))])
 const filtered = computed(() => {
   const term = search.value.toLowerCase()
-  return systems.value.filter(item => {
+  return systems.value.filter((item) => {
     const matchesCategory = category.value === 'Todas' || item.category === category.value
     const haystack = `${item.name} ${item.category} ${item.headingFont} ${item.bodyFont} ${item.iconStyle}`.toLowerCase()
     return matchesCategory && haystack.includes(term)
@@ -33,11 +33,28 @@ const uniqueIcons = computed(() => [...new Set(systems.value.flatMap(item => ite
         <h1>Sistemas visuales que cobran vida.</h1>
         <p>{{ store.content.settings.description }}</p>
         <div class="hero-actions">
-          <UButton size="xl" to="#systems" trailing-icon="i-lucide-arrow-down">Explorar sistemas</UButton>
-          <UButton size="xl" color="neutral" variant="outline" to="/admin">Abrir CMS</UButton>
+          <UButton
+            size="xl"
+            to="#systems"
+            trailing-icon="i-lucide-arrow-down"
+          >
+            Explorar sistemas
+          </UButton>
+          <UButton
+            size="xl"
+            color="neutral"
+            variant="outline"
+            to="/admin"
+          >
+            Abrir CMS
+          </UButton>
         </div>
         <div class="hero-tags">
-          <UBadge v-for="tag in ['Paletas', 'Tipografías', 'Iconos', 'Animaciones']" :key="tag" variant="soft">
+          <UBadge
+            v-for="tag in ['Paletas', 'Tipografías', 'Iconos', 'Animaciones']"
+            :key="tag"
+            variant="soft"
+          >
             {{ tag }}
           </UBadge>
         </div>
@@ -47,14 +64,26 @@ const uniqueIcons = computed(() => [...new Set(systems.value.flatMap(item => ite
         <div class="hero-orb orb-a" />
         <div class="hero-orb orb-b" />
         <div class="dashboard-preview">
-          <div class="window-dots"><i /><i /><i /></div>
+          <div class="window-dots">
+            <i /><i /><i />
+          </div>
           <div class="dashboard-body">
-            <aside><span v-for="item in 4" :key="item" /></aside>
+            <aside>
+              <span
+                v-for="item in 4"
+                :key="item"
+              />
+            </aside>
             <section>
               <div class="dashboard-title" />
-              <div class="dashboard-metrics"><i /><i /><i /></div>
+              <div class="dashboard-metrics">
+                <i /><i /><i />
+              </div>
               <div class="dashboard-chart">
-                <b v-for="item in 7" :key="item" />
+                <b
+                  v-for="item in 7"
+                  :key="item"
+                />
               </div>
             </section>
           </div>
@@ -72,14 +101,21 @@ const uniqueIcons = computed(() => [...new Set(systems.value.flatMap(item => ite
       <article><strong>60 FPS</strong><span>Animaciones fluidas</span></article>
     </section>
 
-    <section id="systems" class="page-section">
+    <section
+      id="systems"
+      class="page-section"
+    >
       <div class="section-heading">
         <div><span class="eyebrow">BIBLIOTECA VISUAL</span><h2>Una identidad digital completa.</h2></div>
         <p>Observa cómo interactúan color, tipografía, iconografía y movimiento.</p>
       </div>
 
       <div class="toolbar">
-        <UInput v-model="search" icon="i-lucide-search" placeholder="Buscar sistema visual..." />
+        <UInput
+          v-model="search"
+          icon="i-lucide-search"
+          placeholder="Buscar sistema visual..."
+        />
         <div class="filter-row">
           <UButton
             v-for="item in categories"
@@ -95,32 +131,69 @@ const uniqueIcons = computed(() => [...new Set(systems.value.flatMap(item => ite
       </div>
 
       <div class="systems-grid">
-        <SystemCard v-for="system in filtered" :key="system.id" :system="system" />
+        <SystemCard
+          v-for="system in filtered"
+          :key="system.id"
+          :system="system"
+        />
       </div>
-      <UAlert v-if="filtered.length === 0" title="No se encontraron sistemas" icon="i-lucide-search-x" />
+      <UAlert
+        v-if="filtered.length === 0"
+        title="No se encontraron sistemas"
+        icon="i-lucide-search-x"
+      />
     </section>
 
-    <section id="motion" class="motion-section">
+    <section
+      id="motion"
+      class="motion-section"
+    >
       <div class="section-heading">
         <div><span class="eyebrow light">MOVIMIENTO</span><h2>Animaciones con propósito.</h2></div>
         <p>Transiciones para reforzar jerarquía, interacción y personalidad sin distraer.</p>
       </div>
       <div class="motion-grid">
-        <MotionDemo title="Fade & Reveal" description="Entrada progresiva para contenido." animation="reveal" />
-        <MotionDemo title="Float" description="Movimiento sutil para destacar elementos." animation="float" />
-        <MotionDemo title="Pulse" description="Énfasis visual para estados y llamadas." animation="pulse" />
-        <MotionDemo title="Wave" description="Ritmo visual para actividad y datos." animation="wave" />
+        <MotionDemo
+          title="Fade & Reveal"
+          description="Entrada progresiva para contenido."
+          animation="reveal"
+        />
+        <MotionDemo
+          title="Float"
+          description="Movimiento sutil para destacar elementos."
+          animation="float"
+        />
+        <MotionDemo
+          title="Pulse"
+          description="Énfasis visual para estados y llamadas."
+          animation="pulse"
+        />
+        <MotionDemo
+          title="Wave"
+          description="Ritmo visual para actividad y datos."
+          animation="wave"
+        />
       </div>
     </section>
 
-    <section id="icons" class="page-section icons-section">
+    <section
+      id="icons"
+      class="page-section icons-section"
+    >
       <div class="section-heading">
         <div><span class="eyebrow">ICONOGRAFÍA</span><h2>Iconos consistentes para cada estilo.</h2></div>
         <p>La integración usa Nuxt Icon y el conjunto Lucide.</p>
       </div>
       <div class="icon-gallery">
-        <UTooltip v-for="icon in uniqueIcons" :key="icon" :text="icon">
-          <button class="gallery-icon" type="button">
+        <UTooltip
+          v-for="icon in uniqueIcons"
+          :key="icon"
+          :text="icon"
+        >
+          <button
+            class="gallery-icon"
+            type="button"
+          >
             <UIcon :name="icon" />
           </button>
         </UTooltip>

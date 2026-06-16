@@ -5,7 +5,10 @@ const store = useStudioStore()
 <template>
   <footer class="footer">
     <div>
-      <NuxtLink class="brand" to="/">
+      <NuxtLink
+        class="brand"
+        to="/"
+      >
         <span class="brand-mark"><i /><i /><i /></span>
         <span>{{ store.content?.settings.brand }}</span>
       </NuxtLink>

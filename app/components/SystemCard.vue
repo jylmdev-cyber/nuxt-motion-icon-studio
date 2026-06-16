@@ -8,7 +8,7 @@ const style = computed(() => ({
   '--preview-text': props.system.palette[5] ?? props.system.palette[0] ?? '#111827',
   '--preview-accent': props.system.palette[2] ?? '#8B5CF6',
   '--heading-font': `'${props.system.headingFont}', sans-serif`,
-  '--body-font': `'${props.system.bodyFont}', sans-serif`
+  '--body-font': `'${props.system.bodyFont}', sans-serif`,
 }))
 
 const toast = useToast()
@@ -21,14 +21,22 @@ async function copy(value: string) {
 
 <template>
   <article class="system-card">
-    <div class="system-preview" :class="`motion-${system.animation}`" :style="style">
+    <div
+      class="system-preview"
+      :class="`motion-${system.animation}`"
+      :style="style"
+    >
       <span class="eyebrow">{{ system.category }}</span>
       <h3>{{ system.sampleTitle }}</h3>
       <p>{{ system.sampleText }}</p>
 
       <div class="visual-row">
         <div class="card-icons">
-          <span v-for="icon in system.icons" :key="icon" class="card-icon">
+          <span
+            v-for="icon in system.icons"
+            :key="icon"
+            class="card-icon"
+          >
             <UIcon :name="icon" />
           </span>
         </div>
@@ -51,20 +59,42 @@ async function copy(value: string) {
           <h2>{{ system.name }}</h2>
           <p>{{ system.description }}</p>
         </div>
-        <UBadge variant="soft">{{ system.category }}</UBadge>
+        <UBadge variant="soft">
+          {{ system.category }}
+        </UBadge>
       </div>
 
       <div class="meta-row">
-        <UButton size="xs" color="neutral" variant="outline" @click="copy(system.headingFont)">
+        <UButton
+          size="xs"
+          color="neutral"
+          variant="outline"
+          @click="copy(system.headingFont)"
+        >
           {{ system.headingFont }}
         </UButton>
-        <UButton size="xs" color="neutral" variant="outline" @click="copy(system.bodyFont)">
+        <UButton
+          size="xs"
+          color="neutral"
+          variant="outline"
+          @click="copy(system.bodyFont)"
+        >
           {{ system.bodyFont }}
         </UButton>
-        <UButton size="xs" color="neutral" variant="outline" @click="copy(system.iconStyle)">
+        <UButton
+          size="xs"
+          color="neutral"
+          variant="outline"
+          @click="copy(system.iconStyle)"
+        >
           {{ system.iconStyle }}
         </UButton>
-        <UButton size="xs" color="neutral" variant="outline" @click="copy(system.animation)">
+        <UButton
+          size="xs"
+          color="neutral"
+          variant="outline"
+          @click="copy(system.animation)"
+        >
           {{ system.animation }}
         </UButton>
       </div>

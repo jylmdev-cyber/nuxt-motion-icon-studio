@@ -8,10 +8,16 @@ defineProps<{
 
 <template>
   <article class="motion-demo-card">
-    <div class="motion-demo" :class="`demo-${animation}`">
+    <div
+      class="motion-demo"
+      :class="`demo-${animation}`"
+    >
       <span v-if="animation !== 'wave'" />
       <template v-else>
-        <span v-for="item in 3" :key="item" />
+        <span
+          v-for="item in 3"
+          :key="item"
+        />
       </template>
     </div>
     <h3>{{ title }}</h3>

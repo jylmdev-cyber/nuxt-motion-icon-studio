@@ -10,15 +10,15 @@
       "id": "future-indigo",
       "name": "Future Indigo Motion",
       "category": "SaaS",
-      "headingFont": "Space Grotesk",
-      "bodyFont": "Inter",
+      "headingFont": "Sora",
+      "bodyFont": "Manrope",
       "palette": [
-        "#312E81",
-        "#4338CA",
-        "#8B5CF6",
-        "#06B6D4",
+        "#1E1B4B",
+        "#3730A3",
+        "#7C3AED",
+        "#22D3EE",
         "#F8FAFC",
-        "#1E1B4B"
+        "#111827"
       ],
       "iconStyle": "Outline Rounded",
       "animation": "float",
@@ -28,24 +28,24 @@
         "i-lucide-sparkles",
         "i-lucide-layers-3"
       ],
-      "description": "Sistema futurista para SaaS, IA, CRM, ERP y productos digitales.",
-      "sampleTitle": "Diseña experiencias que evolucionan.",
-      "sampleText": "Una combinación tecnológica con movimiento suave e iconografía limpia.",
+      "description": "Sistema premium para SaaS, IA, CRM, ERP y productos digitales con presencia técnica.",
+      "sampleTitle": "Diseña productos que se sienten avanzados.",
+      "sampleText": "Indigo profundo, cian preciso y movimiento suave para interfaces de alto rendimiento.",
       "featured": true
     },
     {
       "id": "modern-minimal",
       "name": "Modern Minimal Flow",
       "category": "Corporativa",
-      "headingFont": "Manrope",
+      "headingFont": "Plus Jakarta Sans",
       "bodyFont": "Source Sans 3",
       "palette": [
         "#0F172A",
-        "#1E2937",
-        "#14B8A6",
+        "#1E293B",
+        "#0F766E",
+        "#CCFBF1",
         "#F8FAFC",
-        "#334155",
-        "#10B981"
+        "#0F172A"
       ],
       "iconStyle": "Minimal Line",
       "animation": "reveal",
@@ -55,9 +55,9 @@
         "i-lucide-settings-2",
         "i-lucide-circle-check"
       ],
-      "description": "Sobrio y profesional para empresas, consultoría y sistemas administrativos.",
-      "sampleTitle": "Claridad que impulsa decisiones.",
-      "sampleText": "Jerarquía precisa, iconos funcionales y transiciones discretas.",
+      "description": "Sobrio y ejecutivo para empresas, consultoría y sistemas administrativos.",
+      "sampleTitle": "Claridad operativa para decidir mejor.",
+      "sampleText": "Grafito, teal y jerarquía compacta para tableros con información crítica.",
       "featured": true
     },
     {
@@ -67,12 +67,12 @@
       "headingFont": "Sora",
       "bodyFont": "DM Sans",
       "palette": [
-        "#111827",
-        "#EC4899",
-        "#6366F1",
+        "#18181B",
+        "#BE185D",
+        "#7C3AED",
+        "#F0ABFC",
         "#FAFAFA",
-        "#1F2937",
-        "#F59E0B"
+        "#27272A"
       ],
       "iconStyle": "Bold Duotone",
       "animation": "pulse",
@@ -82,9 +82,9 @@
         "i-lucide-star",
         "i-lucide-palette"
       ],
-      "description": "Expresivo y dinámico para campañas, agencias y productos juveniles.",
-      "sampleTitle": "Haz que tu marca se mueva.",
-      "sampleText": "Color vibrante, tipografía geométrica y animaciones con energía.",
+      "description": "Expresivo y pulido para campañas, agencias y productos con personalidad.",
+      "sampleTitle": "Energía visual sin perder precisión.",
+      "sampleText": "Magenta controlado, violeta profundo y ritmo visual para piezas memorables.",
       "featured": true
     },
     {
@@ -94,11 +94,12 @@
       "headingFont": "Bricolage Grotesque",
       "bodyFont": "Lora",
       "palette": [
-        "#166534",
-        "#854D0E",
-        "#A3E635",
-        "#F5F5F4",
-        "#292524"
+        "#14532D",
+        "#3F6212",
+        "#84CC16",
+        "#ECFCCB",
+        "#1C1917",
+        "#F7FEE7"
       ],
       "iconStyle": "Soft Organic",
       "animation": "drift",
@@ -108,9 +109,9 @@
         "i-lucide-droplets",
         "i-lucide-trees"
       ],
-      "description": "Natural y cercana para turismo, sostenibilidad, agro y bienestar.",
-      "sampleTitle": "Conecta con lo esencial.",
-      "sampleText": "Formas orgánicas, tonos naturales y movimientos fluidos.",
+      "description": "Natural y sofisticado para turismo, sostenibilidad, agro y bienestar.",
+      "sampleTitle": "Conecta con lo esencial, sin ruido.",
+      "sampleText": "Verdes profundos, lima suave y serif editorial para una sensación orgánica premium.",
       "featured": false
     },
     {
@@ -120,12 +121,12 @@
       "headingFont": "Playfair Display",
       "bodyFont": "Work Sans",
       "palette": [
-        "#4C0519",
-        "#881337",
+        "#3F0D1E",
+        "#7F1D1D",
         "#BE123C",
-        "#D4A017",
-        "#FFF7F8",
-        "#3F0D1E"
+        "#C8A24A",
+        "#FFF7ED",
+        "#2A0F1B"
       ],
       "iconStyle": "Elegant Stroke",
       "animation": "glow",
@@ -137,22 +138,22 @@
       ],
       "description": "Refinado para marcas premium, hoteles, restaurantes y moda.",
       "sampleTitle": "Elegancia en cada interacción.",
-      "sampleText": "Serif editorial, acentos dorados y microanimaciones sofisticadas.",
+      "sampleText": "Serif editorial, grafito borgoña y acentos dorados con brillo contenido.",
       "featured": true
     },
     {
       "id": "ocean-interface",
       "name": "Ocean Interface",
       "category": "Institucional",
-      "headingFont": "Plus Jakarta Sans",
+      "headingFont": "Manrope",
       "bodyFont": "Noto Sans",
       "palette": [
+        "#0C4A6E",
         "#075985",
-        "#0369A1",
-        "#0EA5E9",
-        "#BAE6FD",
+        "#0284C7",
+        "#7DD3FC",
         "#F0F9FF",
-        "#0C4A6E"
+        "#082F49"
       ],
       "iconStyle": "Accessible Line",
       "animation": "wave",
@@ -163,8 +164,8 @@
         "i-lucide-file-text"
       ],
       "description": "Confiable y accesible para salud, educación y servicios públicos.",
-      "sampleTitle": "Información clara, experiencias confiables.",
-      "sampleText": "Alta legibilidad, iconos universales y movimiento calmado.",
+      "sampleTitle": "Información clara para servicios críticos.",
+      "sampleText": "Azul petróleo, celeste accesible y movimiento calmado para transmitir confianza.",
       "featured": false
     }
   ]
