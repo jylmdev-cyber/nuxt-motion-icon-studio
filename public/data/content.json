@@ -1,0 +1,171 @@
+{
+  "settings": {
+    "brand": "Motion Icon Studio",
+    "tagline": "Color, tipografía, iconos y movimiento en un solo sistema visual.",
+    "description": "Explora sistemas visuales completos para interfaces modernas y administra todo desde un CMS local.",
+    "email": "jylmdev@gmail.com"
+  },
+  "systems": [
+    {
+      "id": "future-indigo",
+      "name": "Future Indigo Motion",
+      "category": "SaaS",
+      "headingFont": "Space Grotesk",
+      "bodyFont": "Inter",
+      "palette": [
+        "#312E81",
+        "#4338CA",
+        "#8B5CF6",
+        "#06B6D4",
+        "#F8FAFC",
+        "#1E1B4B"
+      ],
+      "iconStyle": "Outline Rounded",
+      "animation": "float",
+      "icons": [
+        "i-lucide-rocket",
+        "i-lucide-chart-no-axes-column-increasing",
+        "i-lucide-sparkles",
+        "i-lucide-layers-3"
+      ],
+      "description": "Sistema futurista para SaaS, IA, CRM, ERP y productos digitales.",
+      "sampleTitle": "Diseña experiencias que evolucionan.",
+      "sampleText": "Una combinación tecnológica con movimiento suave e iconografía limpia.",
+      "featured": true
+    },
+    {
+      "id": "modern-minimal",
+      "name": "Modern Minimal Flow",
+      "category": "Corporativa",
+      "headingFont": "Manrope",
+      "bodyFont": "Source Sans 3",
+      "palette": [
+        "#0F172A",
+        "#1E2937",
+        "#14B8A6",
+        "#F8FAFC",
+        "#334155",
+        "#10B981"
+      ],
+      "iconStyle": "Minimal Line",
+      "animation": "reveal",
+      "icons": [
+        "i-lucide-briefcase-business",
+        "i-lucide-shield-check",
+        "i-lucide-settings-2",
+        "i-lucide-circle-check"
+      ],
+      "description": "Sobrio y profesional para empresas, consultoría y sistemas administrativos.",
+      "sampleTitle": "Claridad que impulsa decisiones.",
+      "sampleText": "Jerarquía precisa, iconos funcionales y transiciones discretas.",
+      "featured": true
+    },
+    {
+      "id": "vibrant-pulse",
+      "name": "Vibrant Pulse",
+      "category": "Creativa",
+      "headingFont": "Sora",
+      "bodyFont": "DM Sans",
+      "palette": [
+        "#111827",
+        "#EC4899",
+        "#6366F1",
+        "#FAFAFA",
+        "#1F2937",
+        "#F59E0B"
+      ],
+      "iconStyle": "Bold Duotone",
+      "animation": "pulse",
+      "icons": [
+        "i-lucide-heart",
+        "i-lucide-zap",
+        "i-lucide-star",
+        "i-lucide-palette"
+      ],
+      "description": "Expresivo y dinámico para campañas, agencias y productos juveniles.",
+      "sampleTitle": "Haz que tu marca se mueva.",
+      "sampleText": "Color vibrante, tipografía geométrica y animaciones con energía.",
+      "featured": true
+    },
+    {
+      "id": "earthy-organic",
+      "name": "Earthy Organic",
+      "category": "Natural",
+      "headingFont": "Bricolage Grotesque",
+      "bodyFont": "Lora",
+      "palette": [
+        "#166534",
+        "#854D0E",
+        "#A3E635",
+        "#F5F5F4",
+        "#292524"
+      ],
+      "iconStyle": "Soft Organic",
+      "animation": "drift",
+      "icons": [
+        "i-lucide-leaf",
+        "i-lucide-sun",
+        "i-lucide-droplets",
+        "i-lucide-trees"
+      ],
+      "description": "Natural y cercana para turismo, sostenibilidad, agro y bienestar.",
+      "sampleTitle": "Conecta con lo esencial.",
+      "sampleText": "Formas orgánicas, tonos naturales y movimientos fluidos.",
+      "featured": false
+    },
+    {
+      "id": "elegant-burgundy",
+      "name": "Elegant Burgundy Motion",
+      "category": "Premium",
+      "headingFont": "Playfair Display",
+      "bodyFont": "Work Sans",
+      "palette": [
+        "#4C0519",
+        "#881337",
+        "#BE123C",
+        "#D4A017",
+        "#FFF7F8",
+        "#3F0D1E"
+      ],
+      "iconStyle": "Elegant Stroke",
+      "animation": "glow",
+      "icons": [
+        "i-lucide-crown",
+        "i-lucide-gem",
+        "i-lucide-sparkles",
+        "i-lucide-wine"
+      ],
+      "description": "Refinado para marcas premium, hoteles, restaurantes y moda.",
+      "sampleTitle": "Elegancia en cada interacción.",
+      "sampleText": "Serif editorial, acentos dorados y microanimaciones sofisticadas.",
+      "featured": true
+    },
+    {
+      "id": "ocean-interface",
+      "name": "Ocean Interface",
+      "category": "Institucional",
+      "headingFont": "Plus Jakarta Sans",
+      "bodyFont": "Noto Sans",
+      "palette": [
+        "#075985",
+        "#0369A1",
+        "#0EA5E9",
+        "#BAE6FD",
+        "#F0F9FF",
+        "#0C4A6E"
+      ],
+      "iconStyle": "Accessible Line",
+      "animation": "wave",
+      "icons": [
+        "i-lucide-hospital",
+        "i-lucide-users",
+        "i-lucide-activity",
+        "i-lucide-file-text"
+      ],
+      "description": "Confiable y accesible para salud, educación y servicios públicos.",
+      "sampleTitle": "Información clara, experiencias confiables.",
+      "sampleText": "Alta legibilidad, iconos universales y movimiento calmado.",
+      "featured": false
+    }
+  ]
+}
