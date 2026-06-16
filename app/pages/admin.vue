@@ -17,11 +17,15 @@ const settingsForm = reactive<StudioSettings>({
   brand: '',
   tagline: '',
   description: '',
-  email: ''
+  email: '',
 })
 
+function clonePlain<T>(value: T): T {
+  return globalThis.structuredClone(toRaw(value))
+}
+
 watchEffect(() => {
-  if (store.content) Object.assign(settingsForm, structuredClone(store.content.settings))
+  if (store.content) Object.assign(settingsForm, clonePlain(store.content.settings))
 })
 
 const systems = computed(() => store.content?.systems ?? [])
@@ -32,26 +36,28 @@ const featured = computed(() => systems.value.filter(item => item.featured).leng
 const { downloadJson, readJson } = useStudioExport()
 
 function saveSettings() {
-  store.saveSettings(structuredClone(settingsForm))
+  store.saveSettings(clonePlain(settingsForm))
   toast.add({ title: 'Configuración guardada', icon: 'i-lucide-circle-check' })
 }
 
 function editSystem(system?: VisualSystem) {
-  editorValue.value = system ? structuredClone(system) : {
-    id: `system-${Date.now()}`,
-    name: '',
-    category: 'SaaS',
-    headingFont: 'Space Grotesk',
-    bodyFont: 'Inter',
-    palette: ['#312E81', '#4338CA', '#8B5CF6', '#06B6D4', '#F8FAFC', '#1E1B4B'],
-    iconStyle: 'Outline Rounded',
-    animation: 'float',
-    icons: ['i-lucide-rocket', 'i-lucide-sparkles'],
-    description: '',
-    sampleTitle: 'Título de muestra',
-    sampleText: 'Texto para visualizar el sistema.',
-    featured: false
-  }
+  editorValue.value = system
+    ? clonePlain(system)
+    : {
+        id: `system-${Date.now()}`,
+        name: '',
+        category: 'SaaS',
+        headingFont: 'Sora',
+        bodyFont: 'Manrope',
+        palette: ['#1E1B4B', '#3730A3', '#7C3AED', '#22D3EE', '#F8FAFC', '#111827'],
+        iconStyle: 'Outline Rounded',
+        animation: 'float',
+        icons: ['i-lucide-rocket', 'i-lucide-sparkles'],
+        description: '',
+        sampleTitle: 'Título de muestra',
+        sampleText: 'Texto para visualizar el sistema.',
+        featured: false,
+      }
 }
 
 function saveSystem(system: VisualSystem) {
@@ -67,9 +73,11 @@ async function importFile(event: Event) {
   try {
     store.importContent(await readJson(file))
     toast.add({ title: 'Contenido importado', icon: 'i-lucide-file-check' })
-  } catch {
+  }
+  catch {
     toast.add({ title: 'JSON no válido', color: 'error', icon: 'i-lucide-triangle-alert' })
-  } finally {
+  }
+  finally {
     target.value = ''
   }
 }
@@ -79,19 +87,31 @@ async function importFile(event: Event) {
   <UApp>
     <div class="admin-shell">
       <aside class="admin-sidebar">
-        <NuxtLink class="brand light" to="/">
+        <NuxtLink
+          class="brand light"
+          to="/"
+        >
           <span class="brand-mark"><i /><i /><i /></span>
           <span>Motion CMS</span>
         </NuxtLink>
 
         <nav>
-          <button :class="{ active: active === 'dashboard' }" @click="active = 'dashboard'">
+          <button
+            :class="{ active: active === 'dashboard' }"
+            @click="active = 'dashboard'"
+          >
             <UIcon name="i-lucide-layout-dashboard" /> Dashboard
           </button>
-          <button :class="{ active: active === 'settings' }" @click="active = 'settings'">
+          <button
+            :class="{ active: active === 'settings' }"
+            @click="active = 'settings'"
+          >
             <UIcon name="i-lucide-settings-2" /> Configuración
           </button>
-          <button :class="{ active: active === 'systems' }" @click="active = 'systems'">
+          <button
+            :class="{ active: active === 'systems' }"
+            @click="active = 'systems'"
+          >
             <UIcon name="i-lucide-sparkles" /> Sistemas visuales
           </button>
           <NuxtLink to="/"><UIcon name="i-lucide-external-link" /> Ver landing</NuxtLink>
@@ -105,8 +125,25 @@ async function importFile(event: Event) {
             <h1>{{ active === 'dashboard' ? 'Dashboard' : active === 'settings' ? 'Configuración' : 'Sistemas visuales' }}</h1>
           </div>
           <div class="admin-actions">
-            <input ref="fileInput" hidden type="file" accept=".json" @change="importFile">
-            <UButton color="neutral" variant="outline" icon="i-lucide-upload" @click="fileInput?.click()">Importar</UButton>
+            <UColorModeButton
+              color="neutral"
+              variant="ghost"
+            />
+            <input
+              ref="fileInput"
+              hidden
+              type="file"
+              accept=".json"
+              @change="importFile"
+            >
+            <UButton
+              color="neutral"
+              variant="outline"
+              icon="i-lucide-upload"
+              @click="fileInput?.click()"
+            >
+              Importar
+            </UButton>
             <UButton
               v-if="store.content"
               color="neutral"
@@ -133,20 +170,58 @@ async function importFile(event: Event) {
                 <h2>Biblioteca visual lista para producción estática.</h2>
                 <p>El CMS trabaja en el navegador mediante Pinia y localStorage.</p>
               </div>
-              <UButton to="/" trailing-icon="i-lucide-external-link">Ver landing</UButton>
+              <UButton
+                to="/"
+                trailing-icon="i-lucide-external-link"
+              >
+                Ver landing
+              </UButton>
             </div>
           </UCard>
         </section>
 
         <section v-else-if="active === 'settings'">
           <UCard>
-            <template #header><h2>Configuración general</h2></template>
-            <form class="settings-form" @submit.prevent="saveSettings">
-              <UFormField label="Marca"><UInput v-model="settingsForm.brand" required /></UFormField>
-              <UFormField label="Eslogan"><UInput v-model="settingsForm.tagline" required /></UFormField>
-              <UFormField label="Correo"><UInput v-model="settingsForm.email" type="email" required /></UFormField>
-              <UFormField class="full" label="Descripción"><UTextarea v-model="settingsForm.description" required /></UFormField>
-              <div class="full form-actions"><UButton type="submit">Guardar configuración</UButton></div>
+            <template #header>
+              <h2>Configuración general</h2>
+            </template>
+            <form
+              class="settings-form"
+              @submit.prevent="saveSettings"
+            >
+              <UFormField label="Marca">
+                <UInput
+                  v-model="settingsForm.brand"
+                  required
+                />
+              </UFormField>
+              <UFormField label="Eslogan">
+                <UInput
+                  v-model="settingsForm.tagline"
+                  required
+                />
+              </UFormField>
+              <UFormField label="Correo">
+                <UInput
+                  v-model="settingsForm.email"
+                  type="email"
+                  required
+                />
+              </UFormField>
+              <UFormField
+                class="full"
+                label="Descripción"
+              >
+                <UTextarea
+                  v-model="settingsForm.description"
+                  required
+                />
+              </UFormField>
+              <div class="full form-actions">
+                <UButton type="submit">
+                  Guardar configuración
+                </UButton>
+              </div>
             </form>
           </UCard>
         </section>
@@ -156,15 +231,27 @@ async function importFile(event: Event) {
             <template #header>
               <div class="panel-heading">
                 <div><h2>Sistemas visuales</h2><p>Crea, edita, duplica o elimina combinaciones.</p></div>
-                <UButton icon="i-lucide-plus" @click="editSystem()">Nuevo sistema</UButton>
+                <UButton
+                  icon="i-lucide-plus"
+                  @click="editSystem()"
+                >
+                  Nuevo sistema
+                </UButton>
               </div>
             </template>
 
             <div class="admin-list">
-              <article v-for="system in systems" :key="system.id">
+              <article
+                v-for="system in systems"
+                :key="system.id"
+              >
                 <div class="list-main">
                   <div class="list-palette">
-                    <i v-for="color in system.palette.slice(0, 4)" :key="color" :style="{ background: color }" />
+                    <i
+                      v-for="color in system.palette.slice(0, 4)"
+                      :key="color"
+                      :style="{ background: color }"
+                    />
                   </div>
                   <div>
                     <strong>{{ system.name }}</strong>
@@ -172,9 +259,30 @@ async function importFile(event: Event) {
                   </div>
                 </div>
                 <div class="list-actions">
-                  <UButton size="xs" color="neutral" variant="outline" @click="editSystem(system)">Editar</UButton>
-                  <UButton size="xs" color="neutral" variant="outline" @click="store.duplicateSystem(system.id)">Duplicar</UButton>
-                  <UButton size="xs" color="error" variant="ghost" @click="store.deleteSystem(system.id)">Eliminar</UButton>
+                  <UButton
+                    size="xs"
+                    color="neutral"
+                    variant="outline"
+                    @click="editSystem(system)"
+                  >
+                    Editar
+                  </UButton>
+                  <UButton
+                    size="xs"
+                    color="neutral"
+                    variant="outline"
+                    @click="store.duplicateSystem(system.id)"
+                  >
+                    Duplicar
+                  </UButton>
+                  <UButton
+                    size="xs"
+                    color="error"
+                    variant="ghost"
+                    @click="store.deleteSystem(system.id)"
+                  >
+                    Eliminar
+                  </UButton>
                 </div>
               </article>
             </div>
@@ -182,7 +290,10 @@ async function importFile(event: Event) {
         </section>
       </main>
 
-      <AdminSystemEditor v-model="editorValue" @save="saveSystem" />
+      <AdminSystemEditor
+        v-model="editorValue"
+        @save="saveSystem"
+      />
     </div>
   </UApp>
 </template>
