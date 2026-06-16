@@ -8,7 +8,7 @@ describe('studioContentSchema', () => {
         brand: 'Studio',
         tagline: 'Tagline',
         description: 'Description valid',
-        email: 'test@example.com'
+        email: 'test@example.com',
       },
       systems: [{
         id: 'one',
@@ -23,8 +23,8 @@ describe('studioContentSchema', () => {
         description: 'Valid description',
         sampleTitle: 'Title',
         sampleText: 'Text',
-        featured: true
-      }]
+        featured: true,
+      }],
     })
 
     expect(result.success).toBe(false)

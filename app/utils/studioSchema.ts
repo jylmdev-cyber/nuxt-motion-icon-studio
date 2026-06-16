@@ -15,7 +15,7 @@ export const visualSystemSchema = z.object({
   description: z.string().min(5),
   sampleTitle: z.string().min(2),
   sampleText: z.string().min(2),
-  featured: z.boolean()
+  featured: z.boolean(),
 })
 
 export const studioContentSchema = z.object({
@@ -23,7 +23,7 @@ export const studioContentSchema = z.object({
     brand: z.string().min(2),
     tagline: z.string().min(2),
     description: z.string().min(5),
-    email: z.string().email()
+    email: z.string().email(),
   }),
-  systems: z.array(visualSystemSchema)
+  systems: z.array(visualSystemSchema),
 })

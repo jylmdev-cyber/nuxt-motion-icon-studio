@@ -1,8 +1,13 @@
 import { defineStore } from 'pinia'
 import type { StudioContent, VisualSystem } from '~/types/studio'
 import { studioContentSchema } from '~/utils/studioSchema'
+import defaultContent from '~~/public/data/content.json'
 
 const STORAGE_KEY = 'nuxt-motion-icon-studio'
+
+function clonePlain<T>(value: T): T {
+  return globalThis.structuredClone(toRaw(value))
+}
 
 export const useStudioStore = defineStore('studio', () => {
   const content = ref<StudioContent | null>(null)
@@ -22,8 +27,7 @@ export const useStudioStore = defineStore('studio', () => {
       }
     }
 
-    const source = await $fetch<StudioContent>('data/content.json')
-    content.value = studioContentSchema.parse(source)
+    content.value = studioContentSchema.parse(clonePlain(defaultContent))
   }
 
   function persist() {
@@ -34,15 +38,15 @@ export const useStudioStore = defineStore('studio', () => {
 
   function saveSettings(settings: StudioContent['settings']) {
     if (!content.value) return
-    content.value.settings = structuredClone(settings)
+    content.value.settings = clonePlain(settings)
     persist()
   }
 
   function upsertSystem(system: VisualSystem) {
     if (!content.value) return
     const index = content.value.systems.findIndex(item => item.id === system.id)
-    if (index >= 0) content.value.systems[index] = structuredClone(system)
-    else content.value.systems.unshift(structuredClone(system))
+    if (index >= 0) content.value.systems[index] = clonePlain(system)
+    else content.value.systems.unshift(clonePlain(system))
     persist()
   }
 
@@ -51,10 +55,10 @@ export const useStudioStore = defineStore('studio', () => {
     const source = content.value.systems.find(item => item.id === id)
     if (!source) return
     content.value.systems.unshift({
-      ...structuredClone(source),
+      ...clonePlain(source),
       id: `${source.id}-copy-${Date.now()}`,
       name: `${source.name} (copia)`,
-      featured: false
+      featured: false,
     })
     persist()
   }
@@ -86,6 +90,6 @@ export const useStudioStore = defineStore('studio', () => {
     duplicateSystem,
     deleteSystem,
     importContent,
-    reset
+    reset,
   }
 })
